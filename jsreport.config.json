@@ -1,0 +1,68 @@
+{
+    "httpPort": 5488,
+    "store": {
+      "provider": "fs"
+    },
+    "logger": {
+      "console": {
+        "transport": "console",
+        "level": "debug"
+      },
+      "file": {
+        "transport": "file",
+        "level": "info",
+        "filename": "logs/reporter.log"
+      },
+      "error": {
+        "transport": "file",
+        "level": "error",
+        "filename": "logs/error.log"
+      }
+    },
+    "trustUserCode": true,
+    "reportTimeout": 30000000,
+    "workers": {
+      "numberOfWorkers": 1,
+      "chrome": {
+        "numberOfWorkers": 2
+      }
+    },
+    "extensions": {
+      "authentication": {
+        "cookieSession": {},
+        "admin": {
+          "username": "admin",
+          "password": "DivistantAdmin"
+        },
+        "enabled": true
+      },
+      "postgres-store": {
+          "host": "192.168.18.152",
+          "port": 5432,
+          "database": "jsreport",
+          "user": "divistant",
+          "password": "Divistant2024"
+      },
+      "sample-template": {
+        "createSamples": false
+      },
+      "chrome-pdf": {
+        "launchOptions": {
+          "args": [
+            "--no-sandbox",
+            "--disable-setuid-sandbox",
+            "--disable-dev-shm-usage",
+            "--disable-gpu"
+          ],
+          "protocolTimeout": 30000000
+        },
+        "timeout": 30000000
+      },
+      "express": {
+        "request": {
+          "jsonLimit": "1000mb",
+          "inputRequestLimit": "1000mb"
+        }
+      }
+    }
+  }
